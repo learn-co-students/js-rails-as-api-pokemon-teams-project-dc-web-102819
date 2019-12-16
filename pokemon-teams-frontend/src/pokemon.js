@@ -1,24 +1,32 @@
 
 function addPokemon(e, trainerId) {
-    console.log(trainerId)
-    let dataSet = {
-        trainer_id: trainerId
-    }
-    
 
-    let configObject = {
-        method: "POST",
-        headers: {
-            'content-type': 'application/json',
-            Accept: 'application/json'
-        },
-        body: JSON.stringify(dataSet)
-    }
+    const div = document.getElementById(trainerId)
+    const ul = div.querySelector('ul')
+    const numInTeam = ul.childElementCount
 
-    fetch("http://localhost:3000/pokemons", configObject)
-    .then(resp => resp.json())
-    .then(pokemon => renderPokemon(pokemon, trainerId))
-    .catch(error => console.log(error.message))
+    if (numInTeam < 6){
+
+        console.log(trainerId)
+        let dataSet = {
+            trainer_id: trainerId
+        }
+        
+
+        let configObject = {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json',
+                Accept: 'application/json'
+            },
+            body: JSON.stringify(dataSet)
+        }
+
+        fetch("http://localhost:3000/pokemons", configObject)
+        .then(resp => resp.json())
+        .then(pokemon => renderPokemon(pokemon, trainerId))
+        .catch(error => console.log(error.message))
+    }
 
 }   
 
