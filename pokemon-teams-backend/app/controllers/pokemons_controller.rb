@@ -27,8 +27,8 @@ class PokemonsController < ApplicationController
 
     private
 
-    def get_pokemon
-        pokemon = Pokemon.find(params[:id])
-    end
+    # def get_pokemon
+    #     pokemon = Pokemon.find(params[:id])
+    # end
 
 end
