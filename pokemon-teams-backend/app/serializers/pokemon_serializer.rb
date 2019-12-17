@@ -1,0 +1,3 @@
+class PokemonSerializer
+
+end
